@@ -18,9 +18,13 @@
         *ngFor="let photo of photoService.photos; index as posiiton"
       >
         <ion-img
+          ion-long-press
+          [interval]="400"
+          (click)="showPhotoView(photo, position)"
+          (pressed)="showActionSheet(photo, position)"
           [src]="photo.webviewPath"
-          (click)="showActionSheet(photo, position)"
         ></ion-img>
+        <!-- (click)="showActionSheet(photo, position)" -->
       </ion-col>
     </ion-row>
   </ion-grid>
